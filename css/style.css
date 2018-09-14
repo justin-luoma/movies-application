@@ -69,6 +69,14 @@ footer.page-footer {
     margin-bottom: 3rem;
 }
 
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
+.mr-05 {
+    margin-right: 0.5rem!important;
+}
+
 .pl-1 {
     padding-left: 1rem;
 }
@@ -81,6 +89,30 @@ footer.page-footer {
     width: 100%;
 }
 
+.w-75px {
+    width: 75px;
+}
+
+.w-100px {
+    width: 100px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-inlineBlock {
+    display: inline;
+}
+
+.flex-col {
+    flex-flow: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
 .content {
     margin: 2rem 0;
     display: flex;
@@ -89,6 +121,55 @@ footer.page-footer {
     justify-content: center;
 }
 
+.pos-rel {
+    position: relative!important;
+}
+
+.pos-abs {
+    position: absolute!important;
+}
+
 .right {
     text-align: right;
+}
+
+.full {
+    display:block;
+    box-sizing:border-box;
+    clear:both
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+
+    transition: max-height .25s ease-in-out;
+}
+
+.edit-loading {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.edit-loading:after,
+.edit-loading:before {
+    content: ".";
+    visibility: hidden;
+    display: table;
+}
+
+.edit-loading > * {
+    position: absolute;
+    z-index: 999;
+}
+
+.preloader-wrapper.smaller {
+    height: 32.4px;
+    width: 32.4px;
 }
