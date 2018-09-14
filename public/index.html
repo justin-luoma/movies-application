@@ -71,17 +71,12 @@
             </div>
 
             <div id="movies" class="col sm12 hide content w-100">
-                <table class="striped w-100">
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Rating</th>
-                        <th></th>
-                    </tr>
-                    </thead>
+                <h4>Current Movies</h4>
+                <table class="w-100" id="movie-tbl">
 
-                    <tbody id="movie-tbl">
-                    </tbody>
+
+                    <!--<tbody id="movie-tbl">-->
+                    <!--</tbody>-->
                 </table>
             </div>
         </div>
@@ -143,36 +138,35 @@
 
         <div class="row">
             <div class="col s12 center">
-                <h3><i class="mdi-content-send brown-text"></i></h3>
                 <h4>Add a movie</h4>
             </div>
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
+                    <div class="input-field col s9">
+                        <input id="add-movie-title" type="text" class="validate add-movie">
+                        <label for="add-movie-title" id="add-movie-title-label">Title</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
+                    <div class="input-field col s2">
+                        <input id="add-movie-rating" type="number" max="5" min="0" class="validate add-movie">
+                        <label for="add-movie-rating">Rating</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                        <label for="disabled">Disabled</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                    <div class="input-field col s1">
+                        <a class="btn-floating btn-small waves-effect waves-light green disabled" id="add-btn">
+                            <i class="material-icons movie-add-btn" id="add-btn-i">add</i>
+                        </a>
+                        <div class="preloader-wrapper smaller active hide" id="add-load">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -199,41 +193,49 @@
             <div class="row">
 
                 <div class="col s12 center">
-                    <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>Edit a movie</h4>
+                    <h4>Options</h4>
                 </div>
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                            <label for="disabled">Disabled</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
 
-                </form>
 
+
+                <!--<div class="col s12 center">-->
+                    <!--<h3><i class="mdi-content-send brown-text"></i></h3>-->
+                    <!--<h4>Edit a movie</h4>-->
+                <!--</div>-->
+                <!--<form class="col s12">-->
+                    <!--<div class="row">-->
+                        <!--<div class="input-field col s6">-->
+                            <!--<input id="edit-movie-title" type="text" class="validate">-->
+                            <!--<label for="edit-movie-title">Title</label>-->
+                        <!--</div>-->
+                        <!--<div class="input-field col s6">-->
+                            <!--<input id="edit-movie-rating" type="text" class="validate">-->
+                            <!--<label for="edit-movie-rating">Rating</label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                        <!--<div class="input-field col s12">-->
+                            <!--<input disabled value="I am not editable" id="disabled" type="text" class="validate">-->
+                            <!--<label for="disabled">Disabled</label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</form>-->
+
+            </div>
+
+            <div class="row d-flex flex-col justify-center mb-5">
+                <div class="s3 center">
+                    <h6>Edit in modal</h6>
+                    <div class="switch">
+                        <label>
+                            Off
+                            <input type="checkbox" class="modal-toggle" id="modal-switch">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
             </div>
     </div>
     <div class="footer-copyright">
@@ -241,6 +243,9 @@
         </div>
     </div>
 </footer>
+
+<div id="modalContent"></div>
+
 
 
 <!--  Scripts-->
