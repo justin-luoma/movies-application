@@ -4,7 +4,7 @@ module.exports = {
     //         .then(response => response.json());
     // },
     getMovies: () => {
-        return fetch('http://localhost:8080/movies')
+        return fetch('https://json.justinluoma.com/movies')
             .then(response => response.json());
     },
     // editMovie: (url, jsonData) => {
@@ -25,7 +25,7 @@ module.exports = {
         return fetch(url, {method: 'delete'});
     },
     addMovie: (jsonData) => {
-        return fetch('http://localhost:8080/movies', {
+        return fetch('https://json.justinluoma.com/movies', {
             method: 'post',
             body: jsonData,
             headers: {"Content-Type": "application/json"},

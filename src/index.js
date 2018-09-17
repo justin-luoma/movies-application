@@ -12,7 +12,7 @@ const clickHandler = event => {
         event.target.parentElement.classList.add('hide');
         document.getElementById(`edit-btn-${id}`).classList.add('hide');
         document.getElementById(`delete-load-${id}`).classList.remove('hide');
-        deleteMovie(`http://localhost:8080/movies/${event.target.dataset.target}`)
+        deleteMovie(`https://json.justinluoma.com/movies/${event.target.dataset.target}`)
             .then(getMoviesWrapper);
     }
     if (event.target.classList.contains('movie-edit-btn')) {
@@ -54,7 +54,7 @@ const clickHandler = event => {
             "rating": parseInt(ratingElem.value),
         };
         const instance = M.Modal.getInstance(document.getElementById(`modal-${id}`));
-        editMovie(`http://localhost:8080/movies/${id}`, JSON.stringify(data))
+        editMovie(`https://json.justinluoma.com/movies/${id}`, JSON.stringify(data))
             .then(getMoviesWrapper)
             .then(() => instance.close());
     }
