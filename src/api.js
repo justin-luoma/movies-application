@@ -1,8 +1,19 @@
 module.exports = {
+    // getMovies: () => {
+    //     return fetch('/api/movies')
+    //         .then(response => response.json());
+    // },
     getMovies: () => {
-        return fetch('/api/movies')
+        return fetch('http://localhost:8080/movies')
             .then(response => response.json());
     },
+    // editMovie: (url, jsonData) => {
+    //     return fetch(url, {
+    //         method: 'put',
+    //         body: jsonData,
+    //         headers: {"Content-Type": "application/json"},
+    //     }).then(response => console.log(response.json()));
+    // },
     editMovie: (url, jsonData) => {
         return fetch(url, {
             method: 'put',
@@ -14,7 +25,7 @@ module.exports = {
         return fetch(url, {method: 'delete'});
     },
     addMovie: (jsonData) => {
-        return fetch('/api/movies', {
+        return fetch('http://localhost:8080/movies', {
             method: 'post',
             body: jsonData,
             headers: {"Content-Type": "application/json"},

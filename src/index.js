@@ -12,7 +12,7 @@ const clickHandler = event => {
         event.target.parentElement.classList.add('hide');
         document.getElementById(`edit-btn-${id}`).classList.add('hide');
         document.getElementById(`delete-load-${id}`).classList.remove('hide');
-        deleteMovie(`/api/movies/${event.target.dataset.target}`)
+        deleteMovie(`http://localhost:8080/movies/${event.target.dataset.target}`)
             .then(getMoviesWrapper);
     }
     if (event.target.classList.contains('movie-edit-btn')) {
@@ -51,28 +51,28 @@ const clickHandler = event => {
         ratingElem.disabled = true;
         const data = {
             "title": titleElem.value,
-            "rating": ratingElem.value,
+            "rating": parseInt(ratingElem.value),
         };
         const instance = M.Modal.getInstance(document.getElementById(`modal-${id}`));
-        editMovie(`/api/movies/${id}`, JSON.stringify(data))
+        editMovie(`http://localhost:8080/movies/${id}`, JSON.stringify(data))
             .then(getMoviesWrapper)
             .then(() => instance.close());
     }
     if (event.target.classList.contains('movie-add-btn')) {
-        const id = ++maxId;
+        // const id = ++maxId;
         const titleInput = document.getElementById('add-movie-title');
         const ratingInput = document.getElementById('add-movie-rating');
         const data = {
-            "id": id.toString(),
+            // "id": id.toString(),
             "title": titleInput.value,
-            "rating": ratingInput.value,
+            "rating": parseInt(ratingInput.value),
         };
         document.getElementById('add-btn').classList.add("disabled", "hide");
         document.getElementById('add-load').classList.remove('hide');
         titleInput.disabled = true;
         ratingInput.disabled = true;
         addMovie(JSON.stringify(data))
-            .then(getMoviesWrapper()
+            .then(getMoviesWrapper)
                 .then(() => {
                     const titleInput = document.getElementById('add-movie-title');
                     const ratingInput = document.getElementById('add-movie-rating');
@@ -83,7 +83,7 @@ const clickHandler = event => {
                     document.getElementById('add-btn').classList.remove("hide");
                     document.getElementById('add-load').classList.add('hide');
                     M.updateTextFields();
-                }));
+                });
     }
 };
 
